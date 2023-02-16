@@ -1,0 +1,27 @@
+#container {
+    display: flex;
+    width: 960px;
+    flex: 1 1 0;
+}
+
+.row {
+    min-width: 15px;
+    border: 1px solid black;
+    text-align: center;
+    display: inline-block;
+}
+
+.cell {
+    border-bottom: 1px solid black;
+    min-height: 15px;
+    min-width: 15px;
+    /* <--- required (style column to fill the same space as the other columns) */
+}
+
+.cell:last-child {
+    border-bottom: none;
+}
+
+.colorCell {
+    background-color: black;
+}
