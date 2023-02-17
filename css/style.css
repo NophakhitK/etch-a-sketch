@@ -1,20 +1,110 @@
-#container {
+body {
+    background-color: #222831;
+}
+
+.container {
     display: flex;
-    width: 960px;
-    flex: 1 1 0;
+    flex-direction: column;
+}
+
+.secondContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 50px;
+    width: 75%;
+    margin: auto;
+}
+
+.header {
+    color: #00ad85;
+    text-align: center;
+}
+
+.toolBox {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border: 10px solid #393e46;
+    border-radius: 5px;
+    padding: 10px;
+    gap: 10px;
+    background-color: #393e46;
+    justify-content: center;
+}
+
+.slidecontainer {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+.resetBtn {
+    padding: 5px 10px;
+}
+
+.resetBtn:hover {
+    background-color: #00ad85;
+}
+
+#gridContainer {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    margin: auto;
+    border: 15px solid #393e46;
+    border-radius: 5px;
 }
 
 .row {
-    min-width: 15px;
-    border: 1px solid black;
+    display: flex;
+    flex: auto;
+    min-width: 5px;
     text-align: center;
     display: inline-block;
+    background-color: white;
 }
 
 .cell {
-    border-bottom: 1px solid black;
-    min-height: 15px;
-    min-width: 15px;
+    display: flex;
+    flex: auto;
+    aspect-ratio: 1/1;
+    min-height: 5px;
+    min-width: 5px;
     /* <--- required (style column to fill the same space as the other columns) */
 }
 

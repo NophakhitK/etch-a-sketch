@@ -10,9 +10,25 @@
 </head>
 
 <body>
-    <div id="container">
+    <div class="container">
+        <h1 class="header">SPACE SKETCH</h1>
+        <div class="secondContainer">
+            <div class="toolBox">
+                <h2>Your Toolbox!</h2>
+                <div class="slidecontainer">
+                    <h3>Choose your Grid Size!</h3>
+                    <input type="range" min="1" max="100" value="10" class="slider" id="myRange">
+                    <p>Grid Size: <span id="gridNumber"></span></p>
+                </div>
+                <button class="resetBtn">Reset</button>
+            </div>
+            <div id="gridContainer">
+            </div>
+        </div>
     </div>
-    <input class="rowNumber" placeholder="Put Desired Number of Row" required>
+    <div>
+    </div>
+
     <script src="js/script.js"></script>
 </body>
 
