@@ -34,7 +34,20 @@ body {
     justify-content: center;
 }
 
+.toolContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toolContainer>div>label {
+    color: white
+}
+
+
 .slidecontainer {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     align-items: center;
     justify-content: center;
