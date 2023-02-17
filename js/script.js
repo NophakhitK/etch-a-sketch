@@ -11,6 +11,9 @@ slider.oninput = function () {
     output.innerHTML = `${slider.value} * ${slider.value}`;
 }
 
+let colorPicker = document.querySelector('#colorPicker').value
+
+
 makeGrid();
 
 function makeGrid() {
@@ -24,9 +27,8 @@ function makeGrid() {
             row.appendChild(cell);
             cell.addEventListener('mouseover', function (e) {
                 if (e.target.matches('.cell')) {
-                    cell.classList.add('colorCell');
+                    pickColor();
                     resetButton.addEventListener('click', () => {
-                        cell.classList.remove("colorCell");
                         resetGame();
                     });
                 }
@@ -44,3 +46,9 @@ function resetGame() {
     numberOfRow = newSliderValue;
     makeGrid();
 };
+
+function pickColor() {
+    colorPicker = document.querySelector('#colorPicker').value;
+    cell.style.backgroundColor = colorPicker;
+}
+
