@@ -40,6 +40,12 @@ body {
     gap: 10px;
 }
 
+#colorPicker {
+    height: 60px;
+    width: 60px;
+    border: 1px solid whitesmoke;
+    border-radius: 8px;
+}
 
 
 .slidecontainer {

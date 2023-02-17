@@ -28,6 +28,7 @@ function makeGrid() {
             cell.addEventListener('mouseover', function (e) {
                 if (e.target.matches('.cell')) {
                     pickColor();
+                    cell.style.backgroundColor = colorPicker;
                     resetButton.addEventListener('click', () => {
                         resetGame();
                     });
@@ -49,6 +50,5 @@ function resetGame() {
 
 function pickColor() {
     colorPicker = document.querySelector('#colorPicker').value;
-    cell.style.backgroundColor = colorPicker;
 }
 
