@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&family=Roboto:ital,wght@0,400;0,700;1,100&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
@@ -17,6 +21,9 @@
                 <h2>Your Toolbox!</h2>
                 <div class="toolContainer">
                     <input id="colorPicker" type="color">
+                    <button id="colorMode" class="tools toggled" onclick="tglColorMode()">Color Mode</button>
+                    <button id="rainbowMode" class="tools">Rainbow Mode</button>
+                    <button id="eraserMode" class="tools">Eraser Mode</button>
                 </div>
                 <div class=" slidecontainer">
                     <h3>Choose your Grid Size!</h3>

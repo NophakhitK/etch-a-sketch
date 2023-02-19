@@ -7,6 +7,17 @@ const slider = document.getElementById("myRange");
 const output = document.getElementById("gridNumber");
 output.innerHTML = `${slider.value} * ${slider.value}`;
 
+let toggleColorMode = document.querySelector('#colorMode')
+
+function tglColorMode() {
+    if (!toggleColorMode.classList.contains('toggled')) {
+        toggleColorMode.classList.add('toggled');
+    } else if (toggleColorMode.classList.contains('toggled')) {
+        toggleColorMode.classList.remove('toggled');
+    }
+};
+
+
 slider.oninput = function () {
     output.innerHTML = `${slider.value} * ${slider.value}`;
 }
@@ -26,7 +37,7 @@ function makeGrid() {
             cell.classList.add('cell');
             row.appendChild(cell);
             cell.addEventListener('mouseover', function (e) {
-                if (e.target.matches('.cell')) {
+                if ((toggleColorMode.classList.contains('toggled')) && (e.target.matches('.cell'))) {
                     pickColor();
                     cell.style.backgroundColor = colorPicker;
                     resetButton.addEventListener('click', () => {
@@ -50,5 +61,9 @@ function resetGame() {
 
 function pickColor() {
     colorPicker = document.querySelector('#colorPicker').value;
+}
+
+function checkMode() {
+
 }
 
