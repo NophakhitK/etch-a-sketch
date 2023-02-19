@@ -10,9 +10,6 @@ let cells = document.getElementsByClassName('cell');
 let cellsStyle;
 let colorParts;
 
-
-
-
 const slider = document.getElementById("myRange");
 const output = document.getElementById("gridNumber");
 output.innerHTML = `${slider.value} * ${slider.value}`;
@@ -27,8 +24,8 @@ let toggleRainbowMode = document.querySelector('#rainbowMode');
 let toggleEraserMode = document.querySelector('#eraserMode');
 let toggleLightenMode = document.querySelector('#lightenMode');
 let toggleDarkenMode = document.querySelector('#darkenMode')
-
-
+// let toggleGridLine = document.querySelector('.toggleGrid')
+// let toggleGridLineValue = document.querySelector('.toggleGrid').value;
 
 resetButton.addEventListener('click', () => {
     resetGame();
@@ -107,7 +104,6 @@ function changeBackgroundColor() {
     gridContainer.style.backgroundColor = gridContainerColor
 }
 
-
 function resetGame() {
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.lastChild);
@@ -120,8 +116,6 @@ function resetGame() {
     adjustCells();
 };
 
-
-
 function pickColor() {
     colorPicker = document.querySelector('#colorPicker').value;
 }
@@ -133,6 +127,7 @@ function checkMode() {
 }
 
 function adjustCells() {
+
     for (const cell of cells) {
         cell.addEventListener('mouseover', () => {
             if (toggleColorMode.classList.contains('toggled')) {
@@ -164,6 +159,18 @@ function adjustCells() {
     }
 }
 
+// toggleGridLine.addEventListener('click', function (e) {
+//     if ((toggleGridLineValue === "OFF") && (e.target = "toggleGrid")) {
+//         toggleGridLineValue = "ON";
+//         toggleGridLine.classList.add('toggled');
+//         cell.classList.add('borderLine');
+//     }
+//     // // else if ((toggleGridLineValue === "ON") && (e.target = "toggleGrid")) {
+//     // //     toggleGridLineValue = "OFF";
+//     // //     toggleGridLine.classList.remove('toggled');
+//     // //     cell.classList.remove('borderLine');
+//     // }
+// });
 
 resetGame();
 adjustCells();

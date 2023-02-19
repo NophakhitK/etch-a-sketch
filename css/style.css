@@ -8,23 +8,18 @@ body {
     flex-direction: column;
 }
 
+.header {
+    color: #00ad85;
+    text-align: center;
+}
+
 .secondContainer {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap: 50px;
-    width: 75%;
+    width: 65%;
     margin: auto;
-}
-
-.toolBox h2 {
-    color: whitesmoke
-}
-
-.header {
-    color: #00ad85;
-    text-align: center;
 }
 
 .toolBox {
@@ -39,6 +34,10 @@ body {
     justify-content: center;
 }
 
+.toolBox h2 {
+    color: whitesmoke
+}
+
 .toolContainer {
     display: flex;
     flex-direction: column;
@@ -46,14 +45,18 @@ body {
     align-items: center;
 }
 
-button.tools {
-    padding: 8px 15px;
+.colorTools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
 }
+
+
 
 #colorPicker {
     height: 30px;
     width: 30px;
-    margin-bottom: 10px;
 }
 
 #backgroundColorPicker {
@@ -63,6 +66,17 @@ button.tools {
 
 .spanText {
     color: white;
+}
+
+
+.allTools {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+button.tools {
+    padding: 8px 15px;
 }
 
 .slideContainer {
@@ -107,6 +121,7 @@ button.tools {
     cursor: pointer;
 }
 
+.toggleGrid,
 .resetBtn {
     padding: 8px 12px;
     background-color: whitesmoke;
@@ -114,13 +129,14 @@ button.tools {
     border-radius: 5px;
 }
 
-.resetBtn:hover {
+.resetBtn:hover,
+.toggleGrid:hover {
     background-color: #00ad85;
 }
 
 #gridContainer {
-    width: 500px;
-    height: 500px;
+    width: 570px;
+    height: 570px;
     display: flex;
     margin: auto;
     border: 15px solid #393e46;
@@ -149,11 +165,11 @@ button.tools {
     border-bottom: none;
 }
 
-.colorCell {
-    background-color: black;
-}
-
 .toggled {
     background-color: black;
     color: whitesmoke;
+}
+
+.borderLine {
+    border: 1px solid black;
 }
