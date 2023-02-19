@@ -64,6 +64,13 @@ body {
     width: 30px;
 }
 
+#colorPicker:hover,
+#backgroundColorPicker:hover {
+    background-color: #222831;
+    transition: 0.2s;
+    box-shadow: 0px 3px 5px 0px #222831;
+}
+
 .spanText {
     color: white;
 }
@@ -77,6 +84,13 @@ body {
 
 button.tools {
     padding: 8px 15px;
+}
+
+button.tools:hover {
+    background-color: #222831;
+    color: white;
+    transition: 0.3s;
+    box-shadow: 0px 3px 5px 0px #222831;
 }
 
 .slideContainer {
@@ -98,10 +112,12 @@ button.tools {
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    box-shadow: 0px 3px 5px 0px #222831;
 }
 
 .slider:hover {
     opacity: 1;
+    box-shadow: 0px 3px 5px 0px #222831;
 }
 
 .slider::-webkit-slider-thumb {
@@ -109,14 +125,14 @@ button.tools {
     appearance: none;
     width: 25px;
     height: 25px;
-    background: #04AA6D;
+    background: #222831;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    background: #04AA6D;
+    background: #222831;
     cursor: pointer;
 }
 
@@ -130,7 +146,10 @@ button.tools {
 
 .resetBtn:hover,
 .toggleGrid:hover {
-    background-color: #00ad85;
+    background-color: #222831;
+    color: whitesmoke;
+    transition: 0.3s;
+    box-shadow: 0px 3px 5px 0px #222831;
 }
 
 #gridContainer {
@@ -140,6 +159,7 @@ button.tools {
     margin: auto;
     border: 15px solid #393e46;
     border-radius: 5px;
+    transition: 0.3s;
 }
 
 .row {
@@ -157,21 +177,18 @@ button.tools {
     aspect-ratio: 1/1;
     min-height: 5px;
     min-width: 5px;
+    transition: 0.2s;
     /* <--- required (style column to fill the same space as the other columns) */
 }
 
-.cell:last-child {
-    border-bottom: none;
-}
-
 .toggled {
-    background-color: black;
+    background-color: #222831;
     color: whitesmoke;
 }
 
 .resetPara {
     margin-top: 0px;
-    color: white;
+    color: whitesmoke;
 }
 
 /* .borderLine {
