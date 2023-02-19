@@ -1,6 +1,9 @@
 const gridContainer = document.getElementById('gridContainer');
 let numberOfRow = document.querySelector('#myRange').value;
 let numberOfColumn = document.querySelector('#myRange').value;
+const gridContainerColor = "RGB(255,255,255)"
+
+
 
 
 const resetButton = document.querySelector('.resetBtn');
@@ -19,6 +22,8 @@ let allTools = document.querySelectorAll('.tools');
 let colorPicker = document.querySelector('#colorPicker').value
 let toggleColorMode = document.querySelector('#colorMode');
 let toggleRainbowMode = document.querySelector('#rainbowMode');
+let toggleEraserMode = document.querySelector('#eraserMode')
+
 
 resetButton.addEventListener('click', () => {
     resetGame();
@@ -36,20 +41,26 @@ for (let i = 0; i < numberOfRow; ++i) {
 }
 
 function tglColorMode() {
+    checkMode();
     if (!toggleColorMode.classList.contains('toggled')) {
         toggleColorMode.classList.add('toggled');
-    } else if (toggleColorMode.classList.contains('toggled')) {
-        toggleColorMode.classList.remove('toggled');
     }
 };
 
 function tglRainbowMode() {
+    checkMode();
     if (!toggleRainbowMode.classList.contains('toggled')) {
         toggleRainbowMode.classList.add('toggled');
-    } else if (toggleRainbowMode.classList.contains('toggled')) {
-        toggleRainbowMode.classList.remove('toggled');
     }
 }
+
+function tglEraserMode() {
+    checkMode();
+    if (!toggleEraserMode.classList.contains('toggled')) {
+        toggleEraserMode.classList.add('toggled');
+    }
+}
+
 
 function generateRandomRGB() {
     let RGBColor1 = Math.floor(Math.random() * 256);
@@ -80,7 +91,7 @@ function resetGame() {
     numberOfColumn = newSliderValue;
     numberOfRow = newSliderValue;
     makeNewGrid();
-    colorCell();
+    adjustCells();
 };
 
 function pickColor() {
@@ -88,51 +99,12 @@ function pickColor() {
 }
 
 function checkMode() {
-    allTools.classList.remove('toggled');
+    for (const allTool of allTools) {
+        allTool.classList.remove('toggled');
+    }
 }
 
-// makeGrid();
-
-// function makeGrid() {
-//     for (let i = 0; i < numberOfRow; ++i) {
-//         const row = document.createElement('div');
-//         row.classList.add('row');
-//         gridContainer.appendChild(row);
-//         for (let c = 0; c < numberOfColumn; ++c) {
-//             const cell = document.createElement('div');
-//             cell.classList.add('cell');
-//             row.appendChild(cell);
-//             cell.addEventListener('mouseover', function (e) {
-//                 if ((toggleColorMode.classList.contains('toggled')) && (e.target.matches('.cell'))) {
-//                     pickColor();
-//                     cell.style.backgroundColor = colorPicker;
-
-//                 } else if ((toggleRainbowMode.classList.contains('toggled')) && (e.target.matches('.cell'))) {
-//                     RGBColor = generateRandomRGB();
-//                     cell.style.backgroundColor = RGBColor;
-//                 }
-//             });
-//         }
-//     }
-// }
-
-
-// 
-
-// for (let w = 0; w < 1000; ++w) {
-//     cells[0].addEventListener('mouseover', () => {
-//         if (toggleColorMode.classList.contains('toggled')) {
-//             console.log("heard");
-//             pickColor();
-//             cells[0].style.backgroundColor = colorPicker;
-//         } else if (toggleRainbowMode.classList.contains('toggled')) {
-//             RGBColor = generateRandomRGB();
-//             cells[0].style.backgroundColor = RGBColor;
-//         }
-//     });
-// }s
-
-function colorCell() {
+function adjustCells() {
     for (const cell of cells) {
         cell.addEventListener('mouseover', () => {
             if (toggleColorMode.classList.contains('toggled')) {
@@ -142,8 +114,11 @@ function colorCell() {
                 RGBColor = generateRandomRGB();
                 cell.style.backgroundColor = RGBColor;
             }
+            else if (toggleEraserMode.classList.contains('toggled')) {
+                cell.style.backgroundColor = gridContainerColor;
+            }
         })
     }
 }
 
-colorCell();
+adjustCells();
