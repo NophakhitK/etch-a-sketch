@@ -7,7 +7,9 @@ const slider = document.getElementById("myRange");
 const output = document.getElementById("gridNumber");
 output.innerHTML = `${slider.value} * ${slider.value}`;
 
-let toggleColorMode = document.querySelector('#colorMode')
+let allTools = document.querySelectorAll('.tools');
+
+let toggleColorMode = document.querySelector('#colorMode');
 
 function tglColorMode() {
     if (!toggleColorMode.classList.contains('toggled')) {
@@ -17,6 +19,27 @@ function tglColorMode() {
     }
 };
 
+let toggleRainbowMode = document.querySelector('#rainbowMode');
+
+function tglRainbowMode() {
+    if (!toggleRainbowMode.classList.contains('toggled')) {
+        toggleRainbowMode.classList.add('toggled');
+    } else if (toggleRainbowMode.classList.contains('toggled')) {
+        toggleRainbowMode.classList.remove('toggled');
+    }
+}
+
+
+
+
+function generateRandomRGB() {
+    let RGBColor1 = Math.floor(Math.random() * 256);
+    let RGBColor2 = Math.floor(Math.random() * 256);
+    let RGBColor3 = Math.floor(Math.random() * 256);
+    let RGBColor = `rgb(${RGBColor1},${RGBColor2},${RGBColor3})`;
+    return RGBColor;
+}
+
 
 slider.oninput = function () {
     output.innerHTML = `${slider.value} * ${slider.value}`;
@@ -24,6 +47,9 @@ slider.oninput = function () {
 
 let colorPicker = document.querySelector('#colorPicker').value
 
+resetButton.addEventListener('click', () => {
+    resetGame();
+});
 
 makeGrid();
 
@@ -40,9 +66,10 @@ function makeGrid() {
                 if ((toggleColorMode.classList.contains('toggled')) && (e.target.matches('.cell'))) {
                     pickColor();
                     cell.style.backgroundColor = colorPicker;
-                    resetButton.addEventListener('click', () => {
-                        resetGame();
-                    });
+
+                } else if ((toggleRainbowMode.classList.contains('toggled')) && (e.target.matches('.cell'))) {
+                    RGBColor = generateRandomRGB();
+                    cell.style.backgroundColor = RGBColor;
                 }
             });
         }
@@ -64,6 +91,6 @@ function pickColor() {
 }
 
 function checkMode() {
-
+    allTools.classList.remove('toggled');
 }
 
