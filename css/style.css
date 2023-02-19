@@ -86,7 +86,6 @@ button.tools {
     align-items: center;
     justify-content: center;
     color: whitesmoke;
-
 }
 
 .slider {
@@ -170,6 +169,11 @@ button.tools {
     color: whitesmoke;
 }
 
-.borderLine {
-    border: 1px solid black;
+.resetPara {
+    margin-top: 0px;
+    color: white;
 }
+
+/* .borderLine {
+    border: 1px solid black;
+} */
