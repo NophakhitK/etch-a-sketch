@@ -1,12 +1,17 @@
 const gridContainer = document.getElementById('gridContainer');
 let numberOfRow = document.querySelector('#myRange').value;
 let numberOfColumn = document.querySelector('#myRange').value;
-const gridContainerColor = "RGB(255,255,255)"
+let gridContainerColor = document.querySelector('#backgroundColorPicker').value;
 
 const resetButton = document.querySelector('.resetBtn');
 
 let row;
 let cells = document.getElementsByClassName('cell');
+let cellsStyle;
+let colorParts;
+
+
+
 
 const slider = document.getElementById("myRange");
 const output = document.getElementById("gridNumber");
@@ -19,7 +24,10 @@ let allTools = document.querySelectorAll('.tools');
 let colorPicker = document.querySelector('#colorPicker').value
 let toggleColorMode = document.querySelector('#colorMode');
 let toggleRainbowMode = document.querySelector('#rainbowMode');
-let toggleEraserMode = document.querySelector('#eraserMode')
+let toggleEraserMode = document.querySelector('#eraserMode');
+let toggleLightenMode = document.querySelector('#lightenMode');
+let toggleDarkenMode = document.querySelector('#darkenMode')
+
 
 
 resetButton.addEventListener('click', () => {
@@ -58,6 +66,19 @@ function tglEraserMode() {
     }
 }
 
+function tglLightenMode() {
+    checkMode();
+    if (!toggleLightenMode.classList.contains('toggled')) {
+        toggleLightenMode.classList.add('toggled');
+    }
+}
+function tglDarkenMode() {
+    checkMode();
+    if (!toggleDarkenMode.classList.contains('toggled')) {
+        toggleDarkenMode.classList.add('toggled');
+    }
+}
+
 
 function generateRandomRGBA() {
     let RGBColor1 = Math.floor(Math.random() * 256);
@@ -81,6 +102,12 @@ function makeNewGrid() {
     }
 }
 
+function changeBackgroundColor() {
+    gridContainerColor = document.querySelector('#backgroundColorPicker').value;
+    gridContainer.style.backgroundColor = gridContainerColor
+}
+
+
 function resetGame() {
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.lastChild);
@@ -89,8 +116,11 @@ function resetGame() {
     numberOfColumn = newSliderValue;
     numberOfRow = newSliderValue;
     makeNewGrid();
+    changeBackgroundColor();
     adjustCells();
 };
+
+
 
 function pickColor() {
     colorPicker = document.querySelector('#colorPicker').value;
@@ -111,12 +141,29 @@ function adjustCells() {
             } else if (toggleRainbowMode.classList.contains('toggled')) {
                 RGBAColor = generateRandomRGBA();
                 cell.style.backgroundColor = RGBAColor;
-            }
-            else if (toggleEraserMode.classList.contains('toggled')) {
+            } else if (toggleEraserMode.classList.contains('toggled')) {
                 cell.style.backgroundColor = gridContainerColor
+            } else if (toggleLightenMode.classList.contains('toggled')) {
+                cellsStyle = window.getComputedStyle(cell).getPropertyValue('background-color');
+                colorParts = cellsStyle.match(/[\d.]+/g);
+                if (colorParts.length === 3) {
+                    colorParts.push(1);
+                }
+                colorParts[3] = Math.min(1, Math.max(0, parseFloat(colorParts[3]) + -0.1));
+                cell.style.backgroundColor = `rgba(${colorParts.join(',')})`;
+            } else if (toggleDarkenMode.classList.contains('toggled')) {
+                cellsStyle = window.getComputedStyle(cell).getPropertyValue('background-color');
+                colorParts = cellsStyle.match(/[\d.]+/g);
+                if (colorParts.length === 3) {
+                    colorParts.push(1);
+                }
+                colorParts[3] = Math.min(1, Math.max(0, parseFloat(colorParts[3]) + 0.1));
+                cell.style.backgroundColor = `rgba(${colorParts.join(',')})`;
             }
         })
     }
 }
 
+
+resetGame();
 adjustCells();

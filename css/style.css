@@ -65,7 +65,7 @@ button.tools {
     color: white;
 }
 
-.slidecontainer {
+.slideContainer {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -108,7 +108,7 @@ button.tools {
 }
 
 .resetBtn {
-    padding: 5px 10px;
+    padding: 8px 12px;
     background-color: whitesmoke;
     border: 1px black solid;
     border-radius: 5px;
@@ -125,7 +125,6 @@ button.tools {
     margin: auto;
     border: 15px solid #393e46;
     border-radius: 5px;
-    background-color: white;
 }
 
 .row {

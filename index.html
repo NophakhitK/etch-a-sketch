@@ -22,20 +22,21 @@
                 <div class="toolContainer">
                     <div>
                         <div>
-                            <input id="colorPicker" type="color">
+                            <input id="colorPicker" type="color" value="#000000">
                             <span class="spanText">Grid Color</span>
                         </div>
                         <div>
-                            <input id="backgroundColorPicker" type="color">
+                            <input id="backgroundColorPicker" type="color" value="#FFFFFF">
                             <span class="spanText">Background Color</span>
                         </div>
                     </div>
-
                     <button id="colorMode" class="tools toggled" onclick="tglColorMode()">Color Mode</button>
                     <button id="rainbowMode" class="tools" onclick="tglRainbowMode()">Rainbow Mode</button>
                     <button id="eraserMode" class="tools" onclick="tglEraserMode()">Eraser Mode</button>
+                    <button id="lightenMode" class="tools" onclick="tglLightenMode()">Lighten Mode</button>
+                    <button id="darkenMode" class="tools" onclick="tglDarkenMode()">Darken Mode</button>
                 </div>
-                <div class=" slidecontainer">
+                <div class="slideContainer">
                     <h3>Choose your Grid Size!</h3>
                     <input type="range" min="1" max="100" value="10" class="slider" id="myRange">
                     <p>Grid Size: <span id="gridNumber"></span></p>
