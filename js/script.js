@@ -3,9 +3,6 @@ let numberOfRow = document.querySelector('#myRange').value;
 let numberOfColumn = document.querySelector('#myRange').value;
 const gridContainerColor = "RGB(255,255,255)"
 
-
-
-
 const resetButton = document.querySelector('.resetBtn');
 
 let row;
@@ -62,12 +59,13 @@ function tglEraserMode() {
 }
 
 
-function generateRandomRGB() {
+function generateRandomRGBA() {
     let RGBColor1 = Math.floor(Math.random() * 256);
     let RGBColor2 = Math.floor(Math.random() * 256);
     let RGBColor3 = Math.floor(Math.random() * 256);
-    let RGBColor = `rgb(${RGBColor1},${RGBColor2},${RGBColor3})`;
-    return RGBColor;
+    let alphaColor = Math.random();
+    let RGBAColor = `rgba(${RGBColor1},${RGBColor2},${RGBColor3},${alphaColor})`;
+    return RGBAColor;
 }
 
 function makeNewGrid() {
@@ -111,11 +109,11 @@ function adjustCells() {
                 pickColor();
                 cell.style.backgroundColor = colorPicker;
             } else if (toggleRainbowMode.classList.contains('toggled')) {
-                RGBColor = generateRandomRGB();
-                cell.style.backgroundColor = RGBColor;
+                RGBAColor = generateRandomRGBA();
+                cell.style.backgroundColor = RGBAColor;
             }
             else if (toggleEraserMode.classList.contains('toggled')) {
-                cell.style.backgroundColor = gridContainerColor;
+                cell.style.backgroundColor = gridContainerColor
             }
         })
     }

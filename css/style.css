@@ -51,12 +51,19 @@ button.tools {
 }
 
 #colorPicker {
-    height: 60px;
-    width: 60px;
-    border: 1px solid whitesmoke;
-    border-radius: 8px;
+    height: 30px;
+    width: 30px;
+    margin-bottom: 10px;
 }
 
+#backgroundColorPicker {
+    height: 30px;
+    width: 30px;
+}
+
+.spanText {
+    color: white;
+}
 
 .slidecontainer {
     display: flex;
@@ -118,6 +125,7 @@ button.tools {
     margin: auto;
     border: 15px solid #393e46;
     border-radius: 5px;
+    background-color: white;
 }
 
 .row {
@@ -126,7 +134,7 @@ button.tools {
     min-width: 5px;
     text-align: center;
     display: inline-block;
-    background-color: white;
+
 }
 
 .cell {
